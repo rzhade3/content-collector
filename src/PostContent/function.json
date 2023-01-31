@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ],
+      "route": "post/{list}"
+    },
+    {
+      "name": "db",
+      "type": "cosmosDb",
+      "databaseName": "MailingList",
+      "collectionName": "Emails",
+      "createIfNotExists": true,
+      "direction": "out",
+      "connectionStringSetting": "CosmosDBConnection"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "scriptFile": "../dist/PostContent/index.js"
+}
